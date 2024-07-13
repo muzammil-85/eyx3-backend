@@ -59,7 +59,7 @@ def create_transaction(destination: str, amount: str, memo: str = "Reward Transa
 
 def reward_user_with_stellar(stellar_address: str, amount: str):
     try:
-        response = create_and_submit_transaction(stellar_address, amount)
+        response = create_transaction(stellar_address, amount)
         logger.info(f"Transaction successful. Hash: {response['hash']}")
         return response
     except (BadRequestError, NotFoundError) as e:
